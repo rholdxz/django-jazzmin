@@ -161,7 +161,7 @@
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="{% url 'admin:logout' %}" class="dropdown-item">
-                            <i class="fas fa-right-from-bracket mr-2"></i> {% trans 'Log out' %}
+                            <i class="fas fa-arrow-right mr-2"></i> {% trans 'Log out' %}
                         </a>
                         {% get_user_menu user request.current_app|default:"admin" as user_menu %}
                         {% for link in user_menu %}
@@ -172,7 +172,9 @@
                         {% endfor %}
                         <div class="dropdown-divider"></div>
                         {% if perms|can_view_self %}
-                            <a href="{% jazzy_admin_url request.user request.current_app|default:"admin" %}" class="dropdown-item dropdown-footer">{% trans 'See Profile' %}</a>
+                            <a href="{% jazzy_admin_url request.user request.current_app|default:"admin" %}" class="dropdown-item">{% trans 'See Profile' %}
+                                <i class="fas fa-circle-user mr-2"></i>
+                            </a>
                         {% endif %}
                     </div>
                 </li>
